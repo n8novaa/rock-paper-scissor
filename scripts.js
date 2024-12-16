@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice()
 {
     
@@ -18,8 +21,40 @@ function getHumanChoice()
     else
     {
        alert("invalid choice enter rock paper or scissor");
-       return getHUmanChoice();
+       return getHumanChoice();
     }
 }
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+
+function playRound(humanChoice, computerChoice)
+{
+    if (humanChoice === computerChoice)
+    {
+        console.log("its a tie, play again!!!");
+    }
+
+    else if ((humanChoice==="rock"  && computerChoice==="scissor") ||
+            (humanChoice==="scissor"  && computerChoice==="paper")||
+            (humanChoice==="stone"  && computerChoice==="scissor"))
+    {
+        humanScore++;
+        console.log("you've won this round");
+        console.log(`score => humanscore: ${humanScore}  computerscore: ${computerScore}`);
+    }
+
+    else
+    {
+        computerScore++;
+        console.log("you've lost this round");
+        console.log(`score => humanscore: ${humanScore}  computerscore: ${computerScore}`);
+
+    }
+}
+
+const humanChoice= getHumanChoice();
+const computerChoice = getComputerChoice();
+playRound(humanChoice,computerChoice);
+
+
+
+
+
